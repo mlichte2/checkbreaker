@@ -1,34 +1,26 @@
-
-
+name: Build and Deploy
 on:
   push:
     branches:
       - master
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    
     - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Build
-      run: |
-        npm install
-        npm run-script build
-      env:
-            FREEOCR_API_KEY: ${{ secrets.FREEOCR_API_KEY }}
-            FirebaseAPIKEY: ${{ secrets.FirebaseAPIKEY }}
-
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.0.0
+      uses: actions/checkout@v2
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: false
+
+    - name: Use Node.js '12.x'
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm install
+    - run: npm run export
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: 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
         BRANCH: gh-pages
-        FOLDER: build
-
-
-
+        FOLDER: __sapper__/export/repo-name
