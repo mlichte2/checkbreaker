@@ -930,7 +930,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			t = text(t_value);
-    			add_location(p, file$5, 120, 16, 2866);
+    			add_location(p, file$5, 120, 16, 2872);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -1021,15 +1021,15 @@ var app = (function () {
     			t11 = space();
     			br = element("br");
     			t12 = space();
-    			add_location(p, file$5, 112, 14, 2577);
-    			add_location(div0, file$5, 111, 12, 2557);
-    			add_location(div1, file$5, 118, 12, 2791);
+    			add_location(p, file$5, 112, 14, 2583);
+    			add_location(div0, file$5, 111, 12, 2563);
+    			add_location(div1, file$5, 118, 12, 2797);
     			attr_dev(button, "class", "remove-button svelte-1ntzduf");
-    			add_location(button, file$5, 124, 14, 2958);
-    			add_location(div2, file$5, 123, 12, 2938);
-    			add_location(br, file$5, 131, 12, 3153);
+    			add_location(button, file$5, 124, 14, 2964);
+    			add_location(div2, file$5, 123, 12, 2944);
+    			add_location(br, file$5, 131, 12, 3159);
     			attr_dev(li, "class", "list-item svelte-1ntzduf");
-    			add_location(li, file$5, 110, 10, 2522);
+    			add_location(li, file$5, 110, 10, 2528);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -1148,12 +1148,12 @@ var app = (function () {
     			input.__value = input_value_value = [/*person*/ ctx[19].id, /*person*/ ctx[19].name];
     			input.value = input.__value;
     			/*$$binding_groups*/ ctx[15][0].push(input);
-    			add_location(input, file$5, 156, 12, 3856);
-    			add_location(br0, file$5, 161, 25, 4020);
+    			add_location(input, file$5, 156, 12, 3862);
+    			add_location(br0, file$5, 161, 25, 4026);
     			attr_dev(div0, "class", "error svelte-1ntzduf");
-    			add_location(div0, file$5, 162, 12, 4039);
-    			add_location(br1, file$5, 163, 12, 4093);
-    			add_location(div1, file$5, 155, 10, 3838);
+    			add_location(div0, file$5, 162, 12, 4045);
+    			add_location(br1, file$5, 163, 12, 4099);
+    			add_location(div1, file$5, 155, 10, 3844);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
@@ -1216,7 +1216,7 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			button.textContent = "Next";
-    			add_location(button, file$5, 173, 6, 4295);
+    			add_location(button, file$5, 173, 6, 4301);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -1359,42 +1359,42 @@ var app = (function () {
     			br1 = element("br");
     			t19 = space();
     			if (if_block) if_block.c();
-    			add_location(strong, file$5, 103, 44, 2348);
-    			add_location(p, file$5, 101, 2, 2219);
+    			add_location(strong, file$5, 103, 44, 2354);
+    			add_location(p, file$5, 101, 2, 2225);
     			attr_dev(h2, "class", "heading svelte-1ntzduf");
-    			add_location(h2, file$5, 107, 6, 2422);
+    			add_location(h2, file$5, 107, 6, 2428);
     			attr_dev(ul, "class", "item-list");
-    			add_location(ul, file$5, 108, 6, 2459);
-    			add_location(div0, file$5, 106, 4, 2410);
+    			add_location(ul, file$5, 108, 6, 2465);
+    			add_location(div0, file$5, 106, 4, 2416);
     			attr_dev(div1, "class", "show-items svelte-1ntzduf");
-    			add_location(div1, file$5, 105, 2, 2381);
+    			add_location(div1, file$5, 105, 2, 2387);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "add item name");
-    			add_location(input0, file$5, 140, 6, 3307);
+    			add_location(input0, file$5, 140, 6, 3313);
     			attr_dev(div2, "class", "error svelte-1ntzduf");
-    			add_location(div2, file$5, 141, 6, 3381);
+    			add_location(div2, file$5, 141, 6, 3387);
     			attr_dev(input1, "type", "text");
     			attr_dev(input1, "placeholder", "add price amount");
-    			add_location(input1, file$5, 142, 6, 3425);
+    			add_location(input1, file$5, 142, 6, 3431);
     			attr_dev(div3, "class", "error svelte-1ntzduf");
-    			add_location(div3, file$5, 143, 6, 3504);
+    			add_location(div3, file$5, 143, 6, 3510);
     			attr_dev(input2, "type", "number");
     			attr_dev(input2, "placeholder", "Quantity");
     			attr_dev(input2, "class", "quantity svelte-1ntzduf");
-    			add_location(input2, file$5, 145, 8, 3564);
+    			add_location(input2, file$5, 145, 8, 3570);
     			attr_dev(div4, "class", "error svelte-1ntzduf");
-    			add_location(div4, file$5, 151, 8, 3706);
-    			add_location(div5, file$5, 144, 6, 3550);
+    			add_location(div4, file$5, 151, 8, 3712);
+    			add_location(div5, file$5, 144, 6, 3556);
     			attr_dev(div6, "class", "name-checkbox");
-    			add_location(div6, file$5, 153, 6, 3767);
-    			add_location(br0, file$5, 167, 6, 4152);
-    			add_location(button, file$5, 169, 6, 4218);
-    			add_location(form, file$5, 139, 4, 3254);
-    			add_location(br1, file$5, 171, 4, 4255);
+    			add_location(div6, file$5, 153, 6, 3773);
+    			add_location(br0, file$5, 167, 6, 4158);
+    			add_location(button, file$5, 169, 6, 4224);
+    			add_location(form, file$5, 139, 4, 3260);
+    			add_location(br1, file$5, 171, 4, 4261);
     			attr_dev(div7, "class", "add-item");
-    			add_location(div7, file$5, 138, 2, 3227);
+    			add_location(div7, file$5, 138, 2, 3233);
     			attr_dev(div8, "class", "add-items-container svelte-1ntzduf");
-    			add_location(div8, file$5, 100, 0, 2183);
+    			add_location(div8, file$5, 100, 0, 2189);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1577,7 +1577,7 @@ var app = (function () {
 
     	let amount;
     	let peopleWhoAte = [];
-    	let quantity = 1;
+    	let quantity = null;
 
     	// reactive variable to add an ID to each
     	let items = [];
@@ -1653,7 +1653,7 @@ var app = (function () {
 
     			$$invalidate(6, item = "");
     			$$invalidate(2, amount = null);
-    			$$invalidate(4, quantity = 1);
+    			$$invalidate(4, quantity = null);
     			$$invalidate(3, peopleWhoAte = []);
     		} // console.log(items);
     	};

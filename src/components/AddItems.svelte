@@ -8,7 +8,7 @@
   let item = "";
   let amount;
   let peopleWhoAte = [];
-  let quantity = 1;
+  let quantity = null;
 
   // reactive variable to add an ID to each
 
@@ -86,7 +86,7 @@
       ];
       item = "";
       amount = null;
-      quantity = 1;
+      quantity = null;
       peopleWhoAte = [];
       // console.log(items);
     }
