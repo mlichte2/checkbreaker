@@ -18,7 +18,6 @@
   // importing props from App.svelte
 
   export let people;
-  export let receiptInfo;
 
   // form validation
 
@@ -27,6 +26,8 @@
   let error = {
     name: "",
     amount: "",
+    quantity: "",
+    checkbox: "",
   };
 
   // delete item
@@ -56,10 +57,20 @@
     } else if (amount[0] === "$") {
       valid = false;
       error.amount = 'Please remove "$"';
-      // add one below for number of decimal places
+    } else if (!amount.match(/^-?\d+$/) && !amount.match(/^\d+\.\d+$/)) {
+      valid = false;
+      error.amount = "Please enter a number";
+    } else if (quantity < 1) {
+      valid = false;
+      error.quantity = "You must enter a quantity larger than 1";
+    } else if (peopleWhoAte.length < 1) {
+      valid = false;
+      error.checkbox = "At least one person must be selected";
     } else {
       error.name = "";
       error.amount = "";
+      error.quantity = "";
+      error.checkbox = "";
     }
 
     if (valid) {
@@ -75,6 +86,8 @@
       ];
       item = "";
       amount = null;
+      quantity = 1;
+      peopleWhoAte = [];
       // console.log(items);
     }
   };
@@ -92,19 +105,6 @@
   </p>
   <div class="show-items">
     <div>
-      {#if receiptInfo[0].textResults.length > 1}
-        <h3>Copy and paste info from the text from your receipt!</h3>
-        <p class="returned-text">{receiptInfo[0].textResults}</p>
-        <!-- {:else}
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          natus a eligendi quisquam quam blanditiis accusantium at, distinctio
-          ipsam corrupti facilis repudiandae, dolor totam unde? Provident quod
-          necessitatibus cupiditate ipsum.
-        </p> -->
-      {/if}
-    </div>
-    <div>
       <h2 class="heading">Items</h2>
       <ul class="item-list">
         {#each items as item}
@@ -117,7 +117,9 @@
             </div>
 
             <div>
-              <p>{item.peopleWhoAteIDs.join(", ")}</p>
+              {#each item.peopleWhoAteIDs as person}
+                <p>{person[1]}</p>
+              {/each}
             </div>
             <div>
               <button
@@ -147,6 +149,7 @@
           class="quantity"
           bind:value={quantity}
         />
+        <div class="error">{error.quantity}</div>
       </div>
       <div class="name-checkbox">
         {#each people as person}
@@ -157,6 +160,8 @@
               value={[person.id, person.name]}
             />
             {person.name}<br />
+            <div class="error">{error.checkbox}</div>
+            <br />
           </div>
         {/each}
       </div>
@@ -202,9 +207,7 @@
     text-align: center;
     padding: 10px;
     border-radius: 10px;
-  }
-  .returned-text {
-    border-style: solid;
+    margin-bottom: 10px;
   }
   .error {
     font-weight: bold;

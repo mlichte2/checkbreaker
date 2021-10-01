@@ -1,6 +1,4 @@
 <script>
-  import db from "../firebase";
-
   export let itemsArray;
   export let people;
 
@@ -8,102 +6,6 @@
   let tip;
   let fullTotal;
   let fullyCalculated = false;
-
-  //   let people = [
-  //     {
-  //       id: 1,
-  //       name: "Michael",
-  //       total: 0,
-  //       itemsOrdered: [],
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Kevin",
-  //       total: 0,
-  //       itemsOrdered: [],
-  //     },
-  //     {
-  //       id: 3,
-  //       name: "Asad",
-  //       total: 0,
-  //       itemsOrdered: [],
-  //     },
-  //     {
-  //       id: 4,
-  //       name: "Rob",
-  //       total: 0,
-  //       itemsOrdered: [],
-  //     },
-  //   ];
-
-  //   let itemsArray = [
-  //     {
-  //       id: 1,
-  //       itemName: "Beers",
-  //       itemAmount: "5",
-  //       quantity: 8,
-  //       peopleWhoAteIDs: [
-  //         [1, "Michael"],
-  //         [2, "Kevin"],
-  //         [3, "Asad"],
-  //         [4, "Rob"],
-  //       ],
-  //     },
-  //     {
-  //       id: 2,
-  //       itemName: "Wings",
-  //       itemAmount: "20",
-  //       quantity: 1,
-  //       peopleWhoAteIDs: [
-  //         [1, "Michael"],
-  //         [2, "Kevin"],
-  //       ],
-  //     },
-  //     {
-  //       id: 3,
-  //       itemName: "Crab leg",
-  //       itemAmount: "100",
-  //       quantity: 1,
-  //       peopleWhoAteIDs: [
-  //         [1, "Michael"],
-  //         [2, "Kevin"],
-  //         [3, "Asad"],
-  //       ],
-  //     },
-  //     {
-  //       id: 4,
-  //       itemName: "whisky shots",
-  //       itemAmount: "10",
-  //       quantity: 3,
-  //       peopleWhoAteIDs: [
-  //         [2, "Kevin"],
-  //         [3, "Asad"],
-  //         [4, "Rob"],
-  //       ],
-  //     },
-  //     {
-  //       id: 5,
-  //       itemName: "vodka red bulls",
-  //       itemAmount: "12",
-  //       quantity: 2,
-  //       peopleWhoAteIDs: [
-  //         [2, "Kevin"],
-  //         [4, "Rob"],
-  //       ],
-  //     },
-  //     {
-  //       id: 6,
-  //       itemName: "burgers",
-  //       itemAmount: "15",
-  //       quantity: 4,
-  //       peopleWhoAteIDs: [
-  //         [1, "Michael"],
-  //         [2, "Kevin"],
-  //         [3, "Asad"],
-  //         [4, "Rob"],
-  //       ],
-  //     },
-  //   ];
 
   const iterateFunction = () => {
     people.forEach((person) => {
@@ -144,32 +46,7 @@
       person.percentageOfSalesTax = person.percentageOfTotal * salesTax;
       person.percentageOfTip = person.percentageOfTotal * tip;
       person.total += person.percentageOfTip + person.percentageOfSalesTax;
-
-      console.log(person);
     });
-  };
-
-  // firebase stuff
-
-  let firebasePathID;
-
-  const pushToFirebase = (people, itemsArray, subtotal, salesTax, tip) => {
-    db.ref("finished-results")
-      .push({
-        people: people,
-        itemsArray: itemsArray,
-        subtotal: subtotal,
-        salesTax: salesTax,
-        tip: tip,
-      })
-      .then((result) => {
-        firebasePathID = result._delegate._path.pieces_[1];
-        console.log(result);
-        console.log(firebasePathID);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   // handle submit button which adds sales tax and tip amount and pushed to firebase
@@ -179,20 +56,10 @@
     calculatesubtotal();
     calculatePercentageTotal();
     fullTotal = subtotal + tip + salesTax;
-    pushToFirebase(people, itemsArray, subtotal, salesTax, tip);
-
-    console.log(fullTotal);
   };
 </script>
 
 <div class="show-results">
-  {#if firebasePathID}
-    <h3 class="firebase-string">
-      Save this string <strong>"{firebasePathID}"</strong> in case you want to
-      reference this session again! You can do so by clicking
-      <strong>Search</strong>! Cheers 🍻!
-    </h3>
-  {/if}
   {#if fullyCalculated === false}
     <div>
       <form on:submit|preventDefault|once={handleSubmitButton}>
@@ -220,8 +87,8 @@
           <h4>Summary:</h4>
           {#each person.itemsOrdered as item}
             <p>
-              {item[2].toFixed(2)}, ${item[1]}
-              {item[0]} | Item Amount (w/ Quantity): ${(
+              {item[2].toFixed(2)} Units, @ ${item[1]} |
+              {item[0]} | Item Cost (w/ Quantity): ${(
                 item[1] * item[2]
               ).toFixed(2)}
             </p>
@@ -254,10 +121,7 @@
   .person-card {
     border-style: solid;
     padding: 2%;
-  }
-  .firebase-string {
-    color: white;
-    background-color: maroon;
-    text-align: left;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 </style>

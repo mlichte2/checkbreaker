@@ -60,10 +60,6 @@
   const handleNextButton = () => {
     dispatch("gotPeopleObject", people);
   };
-
-  const searchPastSessions = () => {
-    dispatch("searchPastSessions");
-  };
 </script>
 
 <div class="add-people-container">
@@ -102,15 +98,6 @@
       <button on:click={handleNextButton}>Next</button>
     {/if}
   </div>
-
-  <div class="return">
-    <p>
-      If you're returning for a past session, click the <strong
-        >"Search Past Session"</strong
-      > button below.
-    </p>
-    <button on:click={searchPastSessions}>Search Past Session</button>
-  </div>
 </div>
 
 <style>
@@ -142,11 +129,8 @@
     justify-content: space-between;
     border-style: solid;
     border-color: black;
-
+    margin-bottom: 10px;
     padding: 10px;
     border-radius: 10px;
-  }
-  .return {
-    border-top-style: solid;
   }
 </style>
